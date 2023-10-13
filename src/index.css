@@ -1,0 +1,9 @@
+/* Example CSS to hide time slots before 09:00 AM and after 05:00 PM */
+.time-slot {
+  display: none;
+}
+
+/* Display only the time slots between 09:00 AM and 05:00 PM */
+.time-slot.time-range-0900-1700 {
+  display: block;
+}
