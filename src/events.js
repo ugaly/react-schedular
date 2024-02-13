@@ -69,17 +69,13 @@ export const EVENTS = [
 ];
 */
 export const EVENTS = [
+
+
   {
     event_id: 1,
     title: "Booking 1",
     start: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 9, 30),
-    end: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 10, 30),
-    disabled: false,
-    editable: false,
-    deletable: false,
-    draggable: false,
-    allDay: false,
-    color: "#ff0000",
+    end: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), 10, 30)
 
   },
 
@@ -88,10 +84,10 @@ export const EVENTS = [
     title: "Booking 1",
     start: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 2, 10, 0),
     end: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 2, 11, 0),
-    deletable: false,
-    draggable: false,
-    editable: false,
-    color: "#50b500"
+    // deletable: false,
+    // draggable: false,
+    // editable: false,
+    // color: "#50b500"
   },
   // Add more events similarly
 

@@ -70,7 +70,7 @@ const TABLE_ROWS = [
     return(
         <div>
 
-        <nav className="relative flex justify-between bg-gray-100 items-center px-4 pb-1 border-b border-gray-300 backdrop-blur-md text-white">
+        {/*<nav className="relative flex justify-between bg-gray-200 items-center px-4 pb-1 border-b border-gray-300 backdrop-blur-md text-white">
     <nav className="flex mt-4 mb-2">
     <ol className="flex items-center space-x-2">
       <li>
@@ -84,12 +84,12 @@ const TABLE_ROWS = [
       </li>
     </ol>
   </nav>
-</nav>
+</nav>*/}
 
               <div className="overflow-auto mt-10 px-0">
-        <table className="w-full min-w-max table-auto  text-left overflow-auto">
+   {/*     <table className="w-full min-w-max table-auto  text-left overflow-auto">
           <thead>
-            <tr className={'bg-gray-100'}>
+            <tr style={{backgroundColor:'#1a202c'}} className={'text-white'}>
               {TABLE_HEAD.map((head, index) => (
                 <th
                   key={index}
@@ -114,7 +114,7 @@ const TABLE_ROWS = [
                 : "p-4 border-b border-blue-gray-50";
 
               return (
-                <tr key={row.id} onClick={()=>handleItemClick(row)} className={'hover:bg-gray-50 cursor-pointer'}>
+                <tr  key={row.id} onClick={()=>handleItemClick(row)} className={'hover:bg-gray-50 cursor-pointer'}>
                   <td className={`${classes} ${isDarkTheme ? "text-dark" : ""}`}>
                     <div className="flex items-center gap-3">
                       <p
@@ -196,6 +196,131 @@ const TABLE_ROWS = [
             })}
           </tbody>
         </table>
+*/}
+
+
+ <div className="flex -mt-2 items-center h-10 intro-y">
+                            <h2 className="mr-5 text-lg font-medium truncate">My Venues</h2>
+                        </div>
+
+          <div className="col-span-12 mt-5">
+
+
+                  <div className="grid gap-2 grid-cols-1 lg:grid-cols-1">
+                      <div className="bg-white p-4 shadow-lg rounded-lg">
+                          <h1 className="font-bold text-base">My venues</h1>
+                          <div className="mt-4">
+                              <div className="flex flex-col">
+                                  <div className="-my-2 overflow-x-auto">
+                                      <div className="py-2 align-middle inline-block min-w-full">
+                                          <div
+                                              className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
+                                              <table className="min-w-full divide-y divide-gray-200">
+                                                  <thead>
+                                                  <tr>
+
+
+                                                      <th
+                                                          className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                          <div className="flex cursor-pointer">
+                                                              <span className="mr-2">S/No</span>
+                                                          </div>
+                                                      </th>
+                                                      <th
+                                                          className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                          <div className="flex cursor-pointer">
+                                                              <span className="mr-2">Name</span>
+                                                          </div>
+                                                      </th>
+                                                      <th
+                                                          className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                          <div className="flex cursor-pointer">
+                                                              <span className="mr-2">Capacity</span>
+                                                          </div>
+                                                      </th>
+
+                                                      <th
+                                                            className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                            <div className="flex cursor-pointer">
+                                                                <span className="mr-2">Location</span>
+                                                            </div>
+                                                        </th>
+                                                        <th
+                                                          className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                          <div className="flex cursor-pointer">
+                                                              <span className="mr-2">Start hour</span>
+                                                          </div>
+                                                      </th>
+
+                                                    <th
+                                                          className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                                                          <div className="flex cursor-pointer">
+                                                              <span className="mr-2">End hour</span>
+                                                          </div>
+                                                      </th>
+                                                  </tr>
+                                                  </thead>
+                                                  <tbody className="bg-white divide-y divide-gray-200">
+
+                                                   {data.map((row, index) => {
+                                                       return (
+                                                  <tr  key={row.id} onClick={()=>handleItemClick(row)} className={'hover:bg-gray-50 cursor-pointer'}>
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <p>{index+1}</p>
+
+                                                      </td>
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <p>{row.name}</p>
+                                                      </td>
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <div className="flex text-green-500 text-lg">
+                                                              <p className={'ml-4'}>{row.capacity}</p>
+                                                          </div>
+                                                      </td>
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <div className="flex ">
+                                                              <p >{row.location}</p>
+                                                          </div>
+                                                      </td>
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <div className="flex space-x-4">
+
+
+                                                                  <p className={'ml-8'}>{row.startHour}</p>
+
+                                                          </div>
+                                                      </td>
+
+                                                      <td
+                                                          className="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                                                          <div className="flex space-x-4">
+
+
+                                                                  <p className={'ml-6'}>{row.endHour}</p>
+
+                                                          </div>
+                                                      </td>
+                                                  </tr>
+                                                       );
+            })}
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+
       </div>
         </div>
     )

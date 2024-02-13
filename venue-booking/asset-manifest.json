@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.js": "/venue-booking/static/js/main.2053612e.chunk.js",
-    "main.js.map": "/venue-booking/static/js/main.2053612e.chunk.js.map",
+    "main.js": "/venue-booking/static/js/main.7f2400ac.chunk.js",
+    "main.js.map": "/venue-booking/static/js/main.7f2400ac.chunk.js.map",
     "runtime-main.js": "/venue-booking/static/js/runtime-main.c760ef7e.js",
     "runtime-main.js.map": "/venue-booking/static/js/runtime-main.c760ef7e.js.map",
-    "static/js/2.67a90507.chunk.js": "/venue-booking/static/js/2.67a90507.chunk.js",
-    "static/js/2.67a90507.chunk.js.map": "/venue-booking/static/js/2.67a90507.chunk.js.map",
+    "static/css/2.a468ad97.chunk.css": "/venue-booking/static/css/2.a468ad97.chunk.css",
+    "static/js/2.ef7abf62.chunk.js": "/venue-booking/static/js/2.ef7abf62.chunk.js",
+    "static/js/2.ef7abf62.chunk.js.map": "/venue-booking/static/js/2.ef7abf62.chunk.js.map",
     "index.html": "/venue-booking/index.html",
-    "static/js/2.67a90507.chunk.js.LICENSE.txt": "/venue-booking/static/js/2.67a90507.chunk.js.LICENSE.txt"
+    "static/css/2.a468ad97.chunk.css.map": "/venue-booking/static/css/2.a468ad97.chunk.css.map",
+    "static/js/2.ef7abf62.chunk.js.LICENSE.txt": "/venue-booking/static/js/2.ef7abf62.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c760ef7e.js",
-    "static/js/2.67a90507.chunk.js",
-    "static/js/main.2053612e.chunk.js"
+    "static/css/2.a468ad97.chunk.css",
+    "static/js/2.ef7abf62.chunk.js",
+    "static/js/main.7f2400ac.chunk.js"
   ]
 }

@@ -228,7 +228,7 @@ import Profile from "./components/pages/profile";
 
 import { BrowserRouter, Route, Routes, Link, Outlet } from "react-router-dom";
 import MyVenue from "./components/pages/my-venue";
-import UserManagement from "./components/pages/User-management";
+import UserMang from "./components/pages/user-mng";
 import AuthService from "./services/auth/auth_service";
 
 
@@ -263,12 +263,21 @@ export default function App() {
   const [venueCount, setVenueCount] = useState(0)
 
   useEffect(()=>{
-      AuthService.venueCount().then(r=>{
+      AuthService.venueCount(0).then(r=>{
         console.log('bbbb',r.data)
       setVenueCount(r.data.venue_count)
   }, [])
   })
 
+
+    const [venueCountAdmin, setVenueCountAdmin] = useState(0)
+
+  useEffect(()=>{
+      AuthService.venueCount(1).then(r=>{
+        console.log('bbbb',r.data)
+      setVenueCountAdmin(r.data.venue_count)
+  }, [])
+  })
 
     const [venueManagerCount, setVenueManagerCount] = useState(0)
      useEffect(()=>{
@@ -281,7 +290,7 @@ export default function App() {
 
   return (
       <BrowserRouter>
-    <div className="flex h-screen ">
+    <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <aside
         id="default-sidebar"
@@ -291,8 +300,8 @@ export default function App() {
         aria-label="Sidebar"
       >
         {/* Sidebar Content */}
-        <div className="min-h-screen flex flex-col  w-60  bg-gray-100 rounded-r-3xl overflow-hidden">
-          <div className="flex items-center   justify-center h-20 shadow-md">
+        <div  className="min-h-screen  bg-gray-800 text-white flex flex-col  w-60  overflow-hidden"> {/* rounded-r-3xl*/}
+          <div className="flex items-center justify-center h-20 shadow-lg">
             <h1 className="text-3xl uppercase text-indigo-500">Logo</h1>
           </div>
           {/*<ul className="flex flex-col py-4">
@@ -364,32 +373,32 @@ export default function App() {
               </a>
             </li>
           </ul>*/}
-           <ul className="flex flex-col py-4">
-                {sessionStorage.getItem('role') === 'Venue Manager' &&  (
-            <li onClick={closeSidebar}>
-              <Link to="/"   onDragStart={handleDragStart} className="group ...">
+           <ul className="flex flex-col py-4 ">
+                {/*{sessionStorage.getItem('role') === 'Venue Manager' &&  (
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
+              <Link to="/"   onDragStart={handleDragStart}  className="group ...">
                 <span
-                  className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+                  className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
 
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg  ">
                   <i className="bx bx-home"></i>
                 </span>
                 <span className="text-sm font-medium">Dashboard</span>
               </span>
               </Link>
             </li>
-                    )}
+                    )}*/}
 
 
                     {sessionStorage.getItem('role') === 'Admin' &&  (
-            <li onClick={closeSidebar}>
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
               <Link to="/"   onDragStart={handleDragStart} className="group ...">
                 <span
-                  className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+                  className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
 
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-home"></i>
                 </span>
                 <span className="text-sm font-medium">Dashboard</span>
@@ -399,12 +408,12 @@ export default function App() {
                     )}
 
                     {sessionStorage.getItem('role') === 'Admin' && (
-            <li onClick={closeSidebar}>
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
               <Link to="/user-management"   onDragStart={handleDragStart} className="group ...">
                 <span
-               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-bell"></i>
                 </span>
                 <span className="text-sm font-medium">User Mng</span>
@@ -417,17 +426,17 @@ export default function App() {
                       )}
 
                       {sessionStorage.getItem('role') === 'Admin' && (
-            <li onClick={closeSidebar}>
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
               <Link to="/venue"   onDragStart={handleDragStart} className="group ...">
                 <span
-               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-bell"></i>
                 </span>
                 <span className="text-sm font-medium">Venue</span>
                 <span className="ml-auto mr-2 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">
-                  5
+                    {venueCountAdmin}
                 </span>
               </span>
               </Link>
@@ -436,12 +445,12 @@ export default function App() {
 
 
                       {sessionStorage.getItem('role') === 'Venue Manager' && (
-            <li onClick={closeSidebar}>
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
               <Link to="/my-venue"   onDragStart={handleDragStart} className="group ...">
                 <span
-               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-bell"></i>
                 </span>
                 <span className="text-sm font-medium">My Venue</span>
@@ -455,12 +464,12 @@ export default function App() {
 
 
            {sessionStorage.getItem('role') === 'User'  ? (
-  <li onClick={closeSidebar}>
+  <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
     <Link to="/booking" onDragStart={handleDragStart} className="group ...">
       <span
-        className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+        className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
       >
-        <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+        <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
           <i className="bx bx-book"></i>
         </span>
         <span className="text-sm font-medium">Booking</span>
@@ -469,12 +478,12 @@ export default function App() {
   </li>
 ) : null}
 
-            <li onClick={closeSidebar}>
-              <Link to="/profile"   onDragStart={handleDragStart} className="group ...">
+            <li onClick={closeSidebar} className={'hover:text-gray-500 '}>
+              <Link onDrag={(e)=>handleDragStart(e)} to="/profile" onDragStart={handleDragStart} className="group ...">
                  <span
-                className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+                className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-user"></i>
                 </span>
                 <span className="text-sm font-medium">Profile</span>
@@ -482,6 +491,8 @@ export default function App() {
               </Link>
             </li>
             <li
+                className={'cursor-pointer'}
+                onDragStart={handleDragStart}
               onClick={() => {
                 sessionStorage.clear();
                 window.location.reload();
@@ -489,15 +500,17 @@ export default function App() {
             >
                 <div className={'group'}>
               <span
-               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
+               className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200  hover:text-gray-800 rounded-lg group-hover:bg-blue-100 mr-5"
               >
-                <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                <span className="inline-flex items-center justify-center h-12 w-12 text-lg ">
                   <i className="bx bx-log-out"></i>
                 </span>
-                <span className="text-sm font-medium">Logout</span>
+                <span className="text-sm cursor-pointer font-medium">Logout</span>
               </span>
                     </div>
             </li>
+
+
           </ul>
             <div className="mt-auto p-4 border-t border-gray-300">
   <div className="text-gray-500 text-center">
@@ -505,14 +518,14 @@ export default function App() {
   </div>
   <div className="text-gray-500 mt-2">
     <p className="text-sm">
-      <span className="text-gray-600">User Name:</span>{" "}
-      <span className={sessionStorage.getItem('role') === 'User' ? 'text-blue-500' : 'text-indigo-500'}>
+      <span className="text-gray-300">User Name:</span>{" "}
+      <span className={sessionStorage.getItem('role') === 'User' ? 'text-blue-500' : 'text-indigo-200'}>
         {sessionStorage.getItem('username')}
       </span>
     </p>
     <p className="text-sm">
-      <span className="text-gray-600">Role:</span>{" "}
-      <span className={sessionStorage.getItem('role') === 'User' ? 'text-blue-500' : 'text-indigo-500'}>
+      <span className="text-gray-300">Role:</span>{" "}
+      <span className={sessionStorage.getItem('role') === 'User' ? 'text-blue-500' : 'text-indigo-200'}>
         {sessionStorage.getItem('role')}
       </span>
     </p>
@@ -579,7 +592,7 @@ export default function App() {
     {sessionStorage.getItem('role') === 'User' ? (
       <Route path="/" element={<Booking />} />
     ) : sessionStorage.getItem('role') === 'Venue Manager' ? (
-      <Route path="/" element={<DashBoard />} />
+      <Route path="/" element={<MyVenue />} />
       ) : sessionStorage.getItem('role') === 'Admin' ? (
       <Route path="/" element={<DashBoard />} />
     ) : (
@@ -588,8 +601,8 @@ export default function App() {
     <Route path="/booking" element={<Booking />} />
     <Route path="/profile" element={<Profile />} />
     <Route path="/venue" element={<Venue />} />
-     <Route path="/my-venue" element={<MyVenue />} />
-      <Route path="/user-management" element={<UserManagement />} />
+    <Route path="/my-venue" element={<MyVenue />} />
+      <Route path="/user-management" element={<UserMang />} />
   </Routes>
 </div>
 

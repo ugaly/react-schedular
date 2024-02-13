@@ -11,7 +11,7 @@ function PreDashboard() {
 
   useEffect(() => {
     AuthService.loadByUsersById(sessionStorage.getItem('id')).then(r => {
-      console.log(r.data.results[0].role.name);
+      console.log(r.data.results[0].id);
       const role = r.data.results[0].role;
       const user_id = r.data.results[0].id;
       sessionStorage.setItem('role', role.name);
